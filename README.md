@@ -9,3 +9,11 @@ Problem:
 
 Goal:
 - Re-create table so that all foods are composed of base ingredients in the correct proportions.
+
+Method:
+1. Load csv
+2. Identify all base ingredients
+3. Identify all foods
+4. Create a new table
+	- Iterate through each food and create rows for each ingredient in the food
+5. Write new table to csv
