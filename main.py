@@ -66,11 +66,15 @@ def findBaseIngredients(df, foods):
 
 	return ingredients
 
+def findRecipe(df, food):
+	return df.loc[df['foodcode'] == food]
 
 def createNewTable(df, foods, base_ingredients):
-	printInfo("TODO")
+	new_table = df.copy(deep=False)
+
 	# Iterate through each food and create rows for each ingredient in the food
-	return df
+
+	return new_table
 
 if __name__ == "__main__":
 	main()
