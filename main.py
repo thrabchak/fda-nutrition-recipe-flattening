@@ -1,8 +1,10 @@
+import os
 import pandas as pd
 
 def main():
-	data_file = "./data/fped_1718_trh.csv"
-	load(data_file)
+	data_folder = os.path.abspath("data")
+	data_file = "fped_1718_trh.csv"
+	load(os.path.join(data_folder, data_file))
 
 	print("done")
 	
