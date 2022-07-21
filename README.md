@@ -2,6 +2,7 @@ Definitions:
 - Food: composed of ingredients in specific proportions
 - Ingredient: Either a food or a base ingredient
 - Base ingredient: An ingredient that is not composed of another ingredient
+- Complex ingredient: An ingredient that is composed of a food
 
 Problem:
 - Some ingredients are foods themselves.

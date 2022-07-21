@@ -27,8 +27,8 @@ def main():
 def printStep(str):
 	print("\n" + str + "\n")
 
-def printInfo(str):
-	print("    - " + str)
+def printInfo(st):
+	print("    - " + str(st))
 
 def load(csv_file):
 	printInfo("Loading: " + csv_file)
@@ -40,7 +40,7 @@ def load(csv_file):
 def save(df, data_file_path):
 	output_path = data_file_path[:-4] + "-output.csv"
 	printInfo("Saving: " + output_path)
-	df.to_csv(output_path)
+	df.to_csv(output_path, index=False)
 	printInfo("Done")
 
 def findFoods(df):
@@ -70,9 +70,21 @@ def findRecipe(df, food):
 	return df.loc[df['foodcode'] == food]
 
 def createNewTable(df, foods, base_ingredients):
-	new_table = df.copy(deep=False)
+	recipes = []
+	for food in foods:
+		recipe = findRecipe(df, food)
 
-	# Iterate through each food and create rows for each ingredient in the food
+		for index, row in recipe.iterrows():
+			ingredient = row['ingredientcode']
+			if (ingredient not in base_ingredients):
+				# Find base ingredients
+				printInfo("found complex ingredient: " + str(ingredient))
+
+		recipes.append(recipe)
+
+	new_table = pd.concat(recipes)
+
+	printInfo("Number of recipes added: " + str(len(recipes)))
 
 	return new_table
 
