@@ -7,7 +7,7 @@ numpy==1.22.1
 packaging==21.3
 pandas==1.4.3
 picosdk==1.0
-Pillow==9.0.0
+Pillow==9.0.1
 pycparser==2.21
 pyparsing==3.0.7
 pyserial==3.5
