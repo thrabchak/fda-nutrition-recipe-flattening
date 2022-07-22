@@ -85,7 +85,7 @@ def simplifyRecipe(df, food, base_ingredients):
 		ingredient_weight = row['ingredientweightg']
 		ingredient_description = row['ingredientdescription']
 
-		if (ingredient in base_ingredients):
+		if (ingredient in base_ingredients or ingredient == food):
 			new_row = row.copy()
 			original_base_ingredients.append(new_row)
 		else:
@@ -142,9 +142,9 @@ def printRecipeSummary(recipe):
 	print("Total percentage: " + str(recipe['ingredientpercentage'].sum()))
 
 if __name__ == "__main__":
-	evaluate_file("fped_0506_trh.csv")
-	evaluate_file("fped_0708_trh.csv")
-	evaluate_file("fped_0910_trh.csv")
+	# evaluate_file("fped_0506_trh.csv")
+	# evaluate_file("fped_0708_trh.csv")
+	# evaluate_file("fped_0910_trh.csv")
 	evaluate_file("fped_1112_trh.csv")
 	evaluate_file("fped_1314_trh.csv")
 	evaluate_file("fped_1516_trh.csv")
