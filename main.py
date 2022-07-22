@@ -103,6 +103,7 @@ def simplifyRecipe(df, food, base_ingredients):
 		simplified_ingredients.append(pd.concat(original_base_ingredients, axis=1).T)
 	output = pd.concat(simplified_ingredients)
 
+	output['mainfooddescription'] = description
 	output['foodcode'] = food
 	output['recipeweight'] = recipe_weight
 	output['ingredientpercentage'] = output['ingredientweightg']/recipe_weight
@@ -142,9 +143,9 @@ def printRecipeSummary(recipe):
 	print("Total percentage: " + str(recipe['ingredientpercentage'].sum()))
 
 if __name__ == "__main__":
-	# evaluate_file("fped_0506_trh.csv")
-	# evaluate_file("fped_0708_trh.csv")
-	# evaluate_file("fped_0910_trh.csv")
+	evaluate_file("fped_0506_trh.csv")
+	evaluate_file("fped_0708_trh.csv")
+	evaluate_file("fped_0910_trh.csv")
 	evaluate_file("fped_1112_trh.csv")
 	evaluate_file("fped_1314_trh.csv")
 	evaluate_file("fped_1516_trh.csv")
